@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Umoja Excellence | Premier Kenyan High School</title>
+    <!-- Google Fonts: Modern & Clean -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Scroll Animations (lightweight) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <style>
+        /* ---------- CUSTOM STYLES - LIGHT THEME ENHANCED ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFCF8;  /* Warm light base */
+            color: #1A2C2A;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, .heading-font {
+            font-family: 'Sora', sans-serif;
+        }
+
+        /* Premium Light Navigation (no dark mode) */
+        .nav-premium {
+            background: rgba(254, 252, 248, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Elegant link underline - Kenyan gold & teal */
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            color: #2C4A46;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2.5px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #0F766E, #E6B12E);
+            border-radius: 4px;
+            transition: width 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #0F766E;
+        }
+
+        /* Primary Button - refined shadows & gradient subtle glow */
+        .btn-primary {
+            background: linear-gradient(105deg, #0F766E 0%, #1A8A7A 100%);
+            color: white;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px -8px rgba(15, 118, 110, 0.35);
+            background: linear-gradient(105deg, #0b5e58 0%, #136B62 100%);
+        }
+        .btn-outline-light {
+            background: transparent;
+            border: 1.5px solid #D4CFC4;
+            color: #2C4A46;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .btn-outline-light:hover {
+            border-color: #0F766E;
+            background: rgba(15,118,110,0.05);
+            transform: translateY(-1px);
+        }
+
+        /* Premium Card - Light & airy with depth */
+        .card-elegant {
+            background: #FFFFFF;
+            border-radius: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.04);
+        }
+        .card-elegant:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            border-color: rgba(15,118,110,0.15);
+        }
+
+        /* Stat card with subtle warm background */
+        .stat-card-premium {
+            background: #FFFFFFF0;
+            border-radius: 1.5rem;
+            padding: 1.25rem 1rem;
+            border: 1px solid #F0EDE5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid-premium {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item-premium {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.2s ease;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            width: 100%;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+        }
+        .gallery-item-premium:hover {
+            transform: scale(0.97);
+            box-shadow: 0 15px 25px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Accent gold touch */
+        .accent-gold {
+            color: #E6B12E;
+        }
+        .bg-accent-soft {
+            background-color: #FEF3D6;
+        }
+
+        /* Admission section */
+        .admission-cta {
+            background: linear-gradient(125deg, #0A4842 0%, #0F766E 100%);
+        }
+
+        /* Scroll margin */
+        section {
+            scroll-margin-top: 95px;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-light {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-radius: 1.75rem;
+            border: 1px solid #EFEAE0;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EFECE5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0F766E;
+            border-radius: 20px;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F766E',
+                        accent: '#E6B12E',
+                        lightcream: '#FEFCF8',
+                    },
+                    fontFamily: {
+                        sora: ['Sora', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- ========== NAVIGATION - PURE LIGHT, REFINED ========== -->
+    <nav class="nav-premium fixed w-full z-50 py-3.5 px-6 md:px-12 transition-all duration-200">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
+                <i class="fas fa-graduation-cap text-2xl text-primary"></i>
+                <span class="heading-font font-bold text-xl tracking-tight text-gray-800">Umoja<span class="text-primary">Excellence</span></span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-sm">Home</a>
+                <a href="#about" class="nav-link text-sm">About</a>
+                <a href="#academics" class="nav-link text-sm">Academics</a>
+                <a href="#gallery" class="nav-link text-sm">Gallery</a>
+                <a href="#news" class="nav-link text-sm">News</a>
+                <a href="#admissions" class="nav-link text-sm">Admissions</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="btn-primary hidden md:inline-block text-sm px-6 py-2">Apply <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                <i class="fas fa-bars md:hidden text-xl text-primary cursor-pointer" id="mobileMenuBtn" aria-label="Menu"></i>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown (light & premium) -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 mobile-menu-light p-5 shadow-lg mx-2">
+            <a href="#home" class="block py-2.5 font-medium text-gray-700 border-b border-gray-100">Home</a>
+            <a href="#about" class="block py-2.5 font-medium text-gray-700 border-b border-gray-100">About</a>
+            <a href="#academics" class="block py-2.5 font-medium text-gray-700 border-b border-gray-100">Academics</a>
+            <a href="#gallery" class="block py-2.5 font-medium text-gray-700 border-b border-gray-100">Gallery</a>
+            <a href="#news" class="block py-2.5 font-medium text-gray-700 border-b border-gray-100">News</a>
+            <a href="#admissions" class="block py-2.5 font-medium text-gray-700 border-b border-gray-100">Admissions</a>
+            <button class="btn-primary w-full text-center mt-4 text-sm">Enroll Now</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ========== HERO SECTION - WARM, INVITING, KENYAN PRIDE ========== -->
+        <section id="home" class="relative pt-36 pb-16 px-6 md:pt-44 md:pb-24 overflow-hidden bg-lightcream">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up" data-aos-duration="700">
+                    <div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full text-primary text-sm font-medium mb-5 shadow-sm">
+                        <i class="fas fa-map-marker-alt text-accent text-xs"></i> 
+                        <span>Nairobi, Kenya | National School of Excellence</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.15] tracking-tight text-gray-900">
+                        Shaping Kenya’s <span class="text-primary">Future Leaders</span>
+                    </h1>
+                    <p class="text-gray-600 text-lg mt-6 leading-relaxed max-w-md border-l-4 border-primary pl-5">
+                        Academic excellence, discipline, and innovation. Umoja Excellence High School — nurturing changemakers who transform Africa.
+                    </p>
+                    <div class="flex flex-wrap gap-5 mt-10">
+                        <button class="btn-primary">Apply Now <i class="fas fa-arrow-right ml-2 text-sm"></i></button>
+                        <button class="btn-outline-light">Virtual Tour <i class="fas fa-play-circle ml-1"></i></button>
+                    </div>
+                    <div class="flex items-center gap-6 mt-8 text-sm text-gray-500">
+                        <span><i class="fas fa-star text-accent mr-1"></i> Top 5 KCSE</span>
+                        <span><i class="fas fa-users text-primary mr-1"></i> 1500+ Alumni</span>
+                    </div>
+                </div>
+                <div class="relative" data-aos="fade-up" data-aos-delay="120">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
+                        <img src="images/hero-section.jpg" alt="Umoja students in modern classroom" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-3 shadow-lg hidden md:flex items-center gap-2">
+                        <i class="fas fa-chart-line text-primary text-xl"></i>
+                        <div><p class="text-xs font-bold">98% University Placement</p><p class="text-[10px] text-gray-500">Class of 2024</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ABOUT SECTION - VALUES + STATS (LIGHT, AIRY) ========== -->
+        <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-14 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full inline-block">Legacy of honor</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 leading-tight">Rooted in values, <br>built for <span class="text-primary">global excellence</span></h2>
+                    <div class="w-16 h-1 bg-accent rounded-full my-6"></div>
+                    <p class="text-gray-600 leading-relaxed">Founded in 2008, Umoja Excellence blends CBC with international standards. Consistently top-ranked in KCSE, with state-of-the-art STEM labs and leadership programs shaping Kenya's brightest minds.</p>
+                    <div class="grid grid-cols-2 gap-6 mt-9">
+                        <div class="stat-card-premium"><p class="text-4xl font-extrabold text-primary">9.2</p><p class="text-sm text-gray-600 font-medium">KCSE Mean Score (2024)</p></div>
+                        <div class="stat-card-premium"><p class="text-4xl font-extrabold text-primary">98%</p><p class="text-sm text-gray-600 font-medium">University Transition</p></div>
+                    </div>
+                </div>
+                <div class="card-elegant p-8" data-aos="fade-left">
+                    <i class="fas fa-quote-left text-primary text-3xl mb-5 opacity-60"></i>
+                    <p class="text-gray-700 text-xl leading-relaxed font-medium">“We shape leaders with integrity and innovation. Every student discovers their unique potential at Umoja.”</p>
+                    <div class="flex items-center gap-4 mt-8 pt-3 border-t border-gray-100">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-primary/20 to-accent/20 flex items-center justify-center"><i class="fas fa-user-graduate text-primary text-xl"></i></div>
+                        <div><p class="font-bold text-gray-800 text-lg">Dr. Jane Akinyi</p><p class="text-sm text-gray-500">Principal, MBS | Educator of the Year</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ACADEMICS: 3 CORE PILLARS ========== -->
+        <section id="academics" class="py-24 px-6 bg-white">
+            <div class="max-w-6xl mx-auto text-center mb-14" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold">Academic <span class="text-primary">Departments</span></h2>
+                <p class="text-gray-500 max-w-lg mx-auto mt-3">CBC curriculum, innovation hubs, and future-focused learning ecosystems</p>
+            </div>
+            <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-elegant p-7 text-center group" data-aos="fade-up"><div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition"><i class="fas fa-dna text-2xl text-primary"></i></div><h3 class="text-xl font-bold">Advanced Sciences</h3><p class="text-gray-500 mt-2">Biology, Chemistry, Physics with research labs & Olympiad training</p></div>
+                <div class="card-elegant p-7 text-center group" data-aos="fade-up" data-aos-delay="60"><div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5"><i class="fas fa-microchip text-2xl text-primary"></i></div><h3 class="text-xl font-bold">ICT & Robotics</h3><p class="text-gray-500 mt-2">Coding, AI, and innovation hub | National tech champions</p></div>
+                <div class="card-elegant p-7 text-center group" data-aos="fade-up" data-aos-delay="120"><div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5"><i class="fas fa-chart-simple text-2xl text-primary"></i></div><h3 class="text-xl font-bold">Business & Entrepreneurship</h3><p class="text-gray-500 mt-2">Leadership, finance, agribusiness & design thinking</p></div>
+            </div>
+        </section>
+
+        <!-- ========== INNOVATION HUB (PREMIUM SHOWCASE) ========== -->
+        <section id="experience" class="py-24 px-6 max-w-6xl mx-auto">
+            <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center shadow-sm border border-white/40" data-aos="zoom-in">
+                <div>
+                    <span class="text-accent font-bold text-sm uppercase tracking-wider bg-white px-3 py-1 rounded-full inline-block shadow-sm"><i class="fas fa-lightbulb mr-1"></i> Innovation Hub</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 text-gray-800">Where ideas become solutions</h2>
+                    <p class="text-gray-600 mt-5 leading-relaxed">Our Innovation & Leadership Center has produced national STEM champions, debate finalists, and young tech entrepreneurs. Mentorship by alumni at MIT, Oxford and top Kenyan universities.</p>
+                    <div class="flex gap-8 mt-7">
+                        <div><span class="font-extrabold text-3xl text-primary">12+</span><p class="text-xs text-gray-500 uppercase tracking-wide">National awards</p></div>
+                        <div><span class="font-extrabold text-3xl text-primary">3</span><p class="text-xs text-gray-500 uppercase tracking-wide">Patents pending</p></div>
+                        <div><span class="font-extrabold text-3xl text-primary">100%</span><p class="text-xs text-gray-500 uppercase tracking-wide">Leadership training</p></div>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-xl"><img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2068" alt="Students in innovation lab" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"></div>
+            </div>
+        </section>
+
+        <!-- ========== STUDENT LIFE - SPORTS & ARTS ========== -->
+        <section class="py-16 px-6 max-w-6xl mx-auto">
+            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl font-bold">Beyond <span class="text-primary">Classroom</span></h2><div class="w-20 h-1 bg-accent mx-auto mt-2 rounded-full"></div><p class="text-gray-500 text-sm mt-3">Holistic growth through sports, leadership & creativity</p></div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div class="card-elegant p-5 text-center"><i class="fas fa-futbol text-2xl text-primary mb-3"></i><h3 class="font-bold">Football & Rugby</h3><p class="text-xs text-gray-500">National champions 2023</p></div>
+                <div class="card-elegant p-5 text-center"><i class="fas fa-microphone-alt text-2xl text-primary mb-3"></i><h3 class="font-bold">Debate & MUN</h3><p class="text-xs text-gray-500">East Africa finals</p></div>
+                <div class="card-elegant p-5 text-center"><i class="fas fa-palette text-2xl text-primary mb-3"></i><h3 class="font-bold">Performing Arts</h3><p class="text-xs text-gray-500">National drama festivals</p></div>
+                <div class="card-elegant p-5 text-center"><i class="fas fa-seedling text-2xl text-primary mb-3"></i><h3 class="font-bold">Eco-Warriors</h3><p class="text-xs text-gray-500">Green school initiatives</p></div>
+            </div>
+        </section>
+
+        <!-- ========== GALLERY - PREMIUM GRID ========== -->
+        <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto">
+            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl font-bold">Life at <span class="text-primary">Umoja</span></h2><p class="text-gray-500 text-sm">Moments of brilliance, community & growth</p></div>
+            <div class="gallery-grid-premium">
+                <img class="gallery-item-premium" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1932" alt="School assembly">
+                <img class="gallery-item-premium" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2032" alt="Science lab">
+                <img class="gallery-item-premium" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070" alt="Sports day">
+                <img class="gallery-item-premium" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070" alt="Library study">
+                <img class="gallery-item-premium" src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=1974" alt="Robotics competition">
+                <img class="gallery-item-premium" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070" alt="Graduation ceremony">
+            </div>
+        </section>
+
+        <!-- ========== NEWS SECTION - MODERN & CLEAN ========== -->
+        <section id="news" class="py-24 px-6 bg-white">
+            <div class="max-w-6xl mx-auto text-center mb-14" data-aos="fade-up"><h2 class="text-3xl font-bold">News & <span class="text-primary">Achievements</span></h2><p class="text-gray-500">Celebrating excellence, shaping the future</p></div>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-7">
+                <div class="card-elegant overflow-hidden group" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500"><div class="p-6"><p class="text-accent text-xs font-bold tracking-wide">March 2025</p><h3 class="font-bold text-xl mt-1">KCSE 2024 Triumph</h3><p class="text-gray-500 mt-2">Ranked 4th nationally, 38 straight A's. University placements soar.</p></div></div>
+                <div class="card-elegant overflow-hidden group" data-aos="fade-up" data-aos-delay="60"><img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2068" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500"><div class="p-6"><p class="text-accent text-xs font-bold tracking-wide">Feb 2025</p><h3 class="font-bold text-xl mt-1">Science Congress Gold</h3><p class="text-gray-500 mt-2">Water filtration innovation awarded at Kenya Science Fair.</p></div></div>
+                <div class="card-elegant overflow-hidden group" data-aos="fade-up" data-aos-delay="120"><img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=1974" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500"><div class="p-6"><p class="text-accent text-xs font-bold tracking-wide">Jan 2025</p><h3 class="font-bold text-xl mt-1">Cultural Leadership Week</h3><p class="text-gray-500 mt-2">Celebrating diversity & prefect induction with global guests.</p></div></div>
+            </div>
+        </section>
+
+        <!-- ========== ADMISSIONS - STRONG, WARM, CONVERSION ========== -->
+        <section id="admissions" class="py-20 px-6 admission-cta text-white rounded-t-3xl">
+            <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold">Join the Excellence Journey</h2>
+                <p class="text-white/90 text-lg mt-3 max-w-2xl mx-auto">Admissions open for Form 1 — 2026 intake. Limited seats for future leaders.</p>
+                <div class="grid md:grid-cols-2 gap-8 mt-12 text-left bg-white/10 backdrop-blur-sm p-7 rounded-2xl border border-white/20">
+                    <div><h3 class="font-bold text-xl flex gap-2 items-center"><i class="fas fa-check-circle text-accent text-2xl"></i> Requirements</h3><ul class="mt-4 space-y-2 text-white/90 text-sm"><li>✓ KCPE/KPSEA results slip</li><li>✓ Birth certificate & school reports</li><li>✓ Entrance interview & aptitude test</li></ul></div>
+                    <div><h3 class="font-bold text-xl flex items-center gap-2"><i class="fas fa-coins text-accent"></i> Fee Structure (Termly)</h3><ul class="mt-4 space-y-2 text-white/90 text-sm"><li>📘 Day Scholars: Ksh 45,000</li><li>🏠 Boarders: Ksh 78,000</li></ul><button class="mt-6 bg-accent text-gray-900 px-6 py-2 rounded-full text-sm font-bold shadow-md hover:bg-white transition">Download Prospectus <i class="fas fa-download ml-2"></i></button></div>
+                </div>
+                <button class="mt-10 bg-white text-primary px-8 py-3 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">Apply Online <i class="fas fa-arrow-right ml-2"></i></button>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER - MINIMAL, PREMIUM KENYAN TOUCH ========== -->
+        <footer class="bg-[#0C2A26] text-gray-300 pt-16 pb-8 px-6">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10">
+                <div><i class="fas fa-landmark text-3xl text-accent"></i><p class="font-bold text-white text-xl mt-3">Umoja Excellence</p><p class="text-sm mt-2">Mbagathi Ridge, Nairobi, Kenya</p><p class="text-sm mt-2"><i class="fas fa-phone-alt mr-2 text-accent"></i> +254 700 123 456</p><p class="text-sm"><i class="fas fa-envelope mr-2 text-accent"></i> info@umojaexcellence.ac.ke</p></div>
+                <div><h4 class="text-white font-semibold text-lg">Quick Links</h4><ul class="space-y-2 mt-4 text-sm"><li><a href="#about" class="hover:text-accent transition">About Us</a></li><li><a href="#academics" class="hover:text-accent transition">Academics</a></li><li><a href="#admissions" class="hover:text-accent transition">Admissions</a></li><li><a href="#gallery" class="hover:text-accent transition">Gallery</a></li></ul></div>
+                <div><h4 class="text-white font-semibold text-lg">Accreditation</h4><div class="flex gap-2 mt-4 items-center"><i class="fas fa-certificate text-accent text-2xl"></i><span class="text-xs">Ministry of Education | KNEC | ISO 9001</span></div><div class="flex gap-5 mt-6 text-2xl"><i class="fab fa-facebook hover:text-accent cursor-pointer transition"></i><i class="fab fa-twitter hover:text-accent transition"></i><i class="fab fa-instagram hover:text-accent transition"></i><i class="fab fa-linkedin hover:text-accent transition"></i></div></div>
+                <div><h4 class="text-white font-semibold text-lg">Motto</h4><p class="italic text-accent text-md mt-2 font-medium">“Knowledge, Discipline, Excellence”</p><p class="text-xs mt-6 border-t border-white/20 pt-4">© 2025 Umoja Excellence High School</p></div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle (enhanced)
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if(mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+        // Smooth scroll with mobile close
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId && targetId !== '#') {
+                    const targetElem = document.querySelector(targetId);
+                    if(targetElem) {
+                        e.preventDefault();
+                        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if(window.innerWidth < 768 && mobileMenu) mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        // AOS init
+        AOS.init({ duration: 600, once: true, offset: 20, easing: 'ease-out' });
+    </script>
+</body>
+</html>
